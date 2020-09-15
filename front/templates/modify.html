@@ -1,0 +1,11 @@
+<html>
+	<head><title>django Test</title></head>
+	<body>
+		<form method="post" class="post-form" enctype="multipart/form-data">
+			{% csrf_token %}
+			{{ form.as_p }}
+			<button onclick="history.back();return false;">취소</button>
+			<button type="submit">등록</button>
+		</form>
+	</body>
+</html>

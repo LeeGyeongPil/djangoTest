@@ -1,0 +1,22 @@
+<html>
+	<head><title>django Test</title></head>
+	<body>
+		<p><h1>{{ board.subject }}</h1></p>
+		<pre>
+			{{ board.context }}
+		</pre>
+		{% if board.files %}
+		<p><a href='{{ board.files.url }}' download>{{ board.files.name }}</a></p>
+		{% endif %}
+		<button onclick="location.href = '/';">목록</button>
+		<button onclick="location.href = '/modify/{{ board.boardidx }}';">수정</button>
+		<button onclick="deleteBoard()">삭제</button>
+	</body>
+</html>
+<script>
+function deleteBoard() {
+	if (confirm('삭제하시겠습니까?')) {
+		location.href = '/delete/{{ board.boardidx }}';
+	}
+}
+</script>

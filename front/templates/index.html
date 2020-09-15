@@ -1,0 +1,25 @@
+﻿<html>
+	<head><title>django Test</title></head>
+	<body>
+		<p><h1>Board</h1></p>
+		<table>
+			<thead>
+				<tr>
+					<th>번호</th>
+					<th>제목</th>
+					<th>작성일</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for board in boards %}
+				<tr>
+					<td>{{ board.boardidx }}</td>
+					<td><a href='/view/{{ board.boardidx }}'>{{ board.subject }}</a></td>
+					<td>{{ board.regdate }}</td>
+				</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+		<button onclick="location.href='/write';">글쓰기</button>
+	</body>
+</html>
